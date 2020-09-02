@@ -1,0 +1,43 @@
+@require './palette'
+
+// 文字
+textContent() {
+  font-size $fontSize
+  color $textColor
+}
+
+// 垂直居中
+centering() {
+  display flex
+  justify-content center
+  align-items center
+}
+
+// 折角效果
+folded-corner($background, $size, $angle=30deg)
+  position: relative
+  background:$background; /* 回退样式 */
+  background: linear-gradient($angle - 180deg, transparent $size, $background 0)
+  border-radius: .5em;
+  $x=$size/ sin($angle)
+  $y=$size / cos($angle)
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,.2) 0, rgba(0,0,0,.4)) 100% 0 no-repeat
+    width: $y
+    height: $x
+    transform: translateY($y - $x) rotate(2*$angle - 90deg)
+    transform-origin: bottom right
+    border-bottom-left-radius: inherit
+    box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.2)
+
+// 多行换行
+lines($number=3) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $number;
+    overflow: hidden;
+}
