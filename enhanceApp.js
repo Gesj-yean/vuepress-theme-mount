@@ -5,7 +5,8 @@ import {
   MenuItemGroup,
   Timeline,
   TimelineItem,
-  Card
+  Card,
+  Tooltip
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -21,5 +22,6 @@ export default ({
   Vue.use(MenuItemGroup)
   Vue.use(Timeline),
     Vue.use(TimelineItem),
-    Vue.use(Card)
+    Vue.use(Card),
+    Vue.use(Tooltip)
 }

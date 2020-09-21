@@ -4,43 +4,34 @@
     .content-wrapper
       img(src="../assets/img/welecom.jpg" height="250" width="250")
       .desc-wrapper
-        | 你好，我是 Ge，很高兴遇见你！
+        | {{$page.frontmatter.message}}
       .button-group-wrapper(v-show="isShowEnter")
-        router-link.enter-btn-wrapper(to="/record") 进入
+        router-link.enter-btn-wrapper(:to="$page.frontmatter.actionLink") {{$page.frontmatter.actionText}}
         input.enter-btn-wrapper(placeholder="搜索" v-model="searchValue" ref="input")
       .direct-icon(v-show="isShowNext" :class="isScrollToTop?'turnLeft':'turnRight'")
         i(:class="isScrollToTop?'el-icon-arrow-down':'el-icon-arrow-up'")
   .other-page
+    .link-wrapper
+      .link-item(v-for="(item,index) in $page.frontmatter.links" :key="index")
+        el-tooltip(effect="dark" :content="item.title" placement="bottom")
+          a(:href="item.link" target="_blank")
+            img(src="../assets/img/juejin.svg" height="30" width="30")
     .other-content-wrapper
-      .fold-angle(@click="$router.push('/record')")
+      .fold-angle(v-for="(item,index) in $page.frontmatter.features"  :key="index" @click="$router.push({path:item.link})")
         .title
           i.el-icon-collection.margin-right-10
-          | 笔记
-        .content 行走的每一步。
-      .fold-angle(@click="$router.push('/read')")
-        .title 
-          i.el-icon-collection-tag.margin-right-10
-          | 读书
-        .content 读书是要有笔记的呀。
-      .fold-angle(@click="$router.push('/project')")
-        .title 
-          i.el-icon-ship.margin-right-10
-          | 项目
-        .content 每一段的记录，这是我的脚步。
-      .fold-angle(@click="$router.push('/other')")
-        .title 
-          i.el-icon-smoking.margin-right-10
-          | 吧啦吧啦
-        .content 来这里说一说。
-      .fold-angle
-        .title 
-          i.el-icon-location-information.margin-right-10
-          | 站点传送门
-        .content
-          a(href="https://github.com/Gesj-yean" target="_blank")
-            img(src="../assets/img/github.png" height="30" width="30")
-          a(href="https://juejin.im/user/2189882895384221" target="_blank") 
-            img(src="../assets/img/juejin.svg" height="30" width="30")
+          | {{item.title}}
+        .content {{item.details}}
+      
+      //- .fold-angle
+      //-   .title 
+      //-     i.el-icon-location-information.margin-right-10
+      //-     | 站点传送门
+      //-   .content
+      //-     a(href="https://github.com/Gesj-yean" target="_blank")
+      //-       img(src="../assets/img/github.png" height="30" width="30")
+      //-     a(href="https://juejin.im/user/2189882895384221" target="_blank") 
+      //-       img(src="../assets/img/juejin.svg" height="30" width="30")
 </template>
 
 <script>
@@ -67,6 +58,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.$page);
     setTimeout(() => {
       this.isShowEnter = true
       setTimeout(() => {
@@ -192,21 +184,24 @@ $font-color = #3e7db8
     background white
     background-image linear-gradient(90deg, #e6a23c1f 50%, transparent 0), linear-gradient(#fcf4e9 50%, transparent 0)
     background-size 30px 30px
-    centering()
+    .link-wrapper
+      text-align right
+      .link-item
+        display inline-block
     .other-content-wrapper
       width 100%
       padding 20px
       display flex
       flex-wrap wrap
       .fold-angle
-        height 100px
+        height 120px
         min-width 200px
         display inline-block
         margin 20px
         padding 20px
         folded-corner(#58a, 30px, 30deg)
         color #fff
-        width calc(33.3% - 80px)
+        width calc(50% - 80px)
         transform scale(1)
         transition transform 0.25s ease-out
         &:hover
