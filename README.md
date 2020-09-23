@@ -4,13 +4,13 @@
 `vuepress-theme-mount` 这个主题来源于作者想要实现属于自己的博客，在众多 `WordPress`，`hexo`等较为成熟的博客中选择了一个并未广泛使用的 `vuepress` 作为基础开发而来。由于在开发时关于 `vuepress` 的开发文档并不全，对于想要使用 `vuepress` 开发自定义主题的开发者不友好，在开发的同时写了一篇教程：[VuePress 开发个人博客进阶之自定义主题](https://juejin.im/post/6869565504756023310) 帮助大家，对于开发主题有任何疑问，可在这篇文章中先查找。
 ## 预览
 - 「首页」
-![首页](http://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo1.png)
+![image](https://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo1.png)
 - 「首页入口」
-![入口](http://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo2.png)
+![image](https://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo2.png)
 - 「笔记」
-![笔记](http://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo3.png)
+![image](https://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo3.png)
 - 「读书」
-![读书](http://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo4.png)
+![image](https://github.com/Gesj-yean/vuepress-theme-mount/raw/master/assets/img/demo4.png)
 
 ## 主题安装
 
