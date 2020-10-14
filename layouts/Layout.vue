@@ -15,7 +15,8 @@
       .link-item(v-for="(item,index) in $page.frontmatter.links" :key="index")
         el-tooltip(effect="dark" :content="item.title" placement="bottom")
           a(:href="item.link" target="_blank")
-            img(src="../assets/img/juejin.svg" height="30" width="30")
+            img(v-if="item.link.includes('juejin')" src="../assets/img/juejin.svg" height="30" width="30")
+            img(v-else-if="item.link.includes('github')" src="../assets/img/github.svg" height="30" width="30")
     .other-content-wrapper
       .fold-angle(v-for="(item,index) in $page.frontmatter.features"  :key="index" @click="$router.push({path:item.link})")
         .title
@@ -186,6 +187,8 @@ $font-color = #3e7db8
     background-size 30px 30px
     .link-wrapper
       text-align right
+      position relative
+      top 20px
       .link-item
         display inline-block
     .other-content-wrapper
@@ -193,6 +196,7 @@ $font-color = #3e7db8
       padding 20px
       display flex
       flex-wrap wrap
+      box-sizing border-box
       .fold-angle
         height 120px
         min-width 200px
